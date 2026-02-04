@@ -36,7 +36,7 @@ Vibecoding is a collaborative approach where **humans and AI work together** on 
 
 For any new project:
 
-- [ ] Create `PROGRESS_LOG.md` in project root (copy from `templates/PROGRESS_LOG.md`)
+- [ ] Create `PROGRESS_LOG.md` in project root (copy from `vibecode/PROGRESS_LOG.md`)
 - [ ] Create `PROJECT_CONTEXT.md` for project documentation
 - [ ] Create `DECISIONS.md` for tracking architectural decisions
 - [ ] Define if working in Solo or Team mode
@@ -360,9 +360,9 @@ For teams across time zones:
 
 | Template | Location | Purpose |
 |----------|----------|---------|
-| Progress Log | `templates/PROGRESS_LOG.md` | Track progress, enable continuity |
-| Project Context | `templates/PROJECT_CONTEXT.md` | Project overview and patterns |
-| Decisions | `templates/DECISIONS.md` | Architectural decision log |
+| Progress Log | `vibecode/PROGRESS_LOG.md` | Track progress, enable continuity |
+| Project Context | `vibecode/PROJECT_CONTEXT.md` | Project overview and patterns |
+| Decisions | `vibecode/DECISIONS.md` | Architectural decision log |
 
 ### 10.2 Template Usage
 
