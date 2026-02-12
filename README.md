@@ -16,7 +16,7 @@ This separation ensures human oversight while leveraging AI capabilities for imp
 ## Project Structure
 
 ```
-vibecode-blueprint/
+vibecode-framework/
 ├── VIBECODE_PROCEDURE.md      # Core methodology (REQUIRED for AI)
 ├── README.md                  # This file
 └── vibecode/
@@ -25,38 +25,71 @@ vibecode-blueprint/
     └── DECISIONS.md           # Architecture decision log
 ```
 
-## Getting Started
+## Installation & Setup
 
-### Step 1: Load the Procedure into AI
+### Step 1: Copy Framework Files to Your Project
+
+Copy the `vibecode/` folder and `VIBECODE_PROCEDURE.md` to the root of the project you want to use this framework with:
+
+**macOS / Linux:**
+```bash
+cp -r vibecode/ /path/to/your-project/vibecode/
+cp VIBECODE_PROCEDURE.md /path/to/your-project/VIBECODE_PROCEDURE.md
+```
+
+**Windows (Command Prompt):**
+```cmd
+xcopy vibecode /path/to/your-project/vibecode /E /I
+copy VIBECODE_PROCEDURE.md /path/to/your-project/VIBECODE_PROCEDURE.md
+```
+
+**Windows (PowerShell):**
+```powershell
+Copy-Item -Recurse vibecode/ /path/to/your-project/vibecode/
+Copy-Item VIBECODE_PROCEDURE.md /path/to/your-project/VIBECODE_PROCEDURE.md
+```
+
+After copying, your project should look like this:
+
+```
+your-project/
+├── vibecode/
+│   ├── PROJECT_CONTEXT.md
+│   ├── PROGRESS_LOG.md
+│   └── DECISIONS.md
+├── VIBECODE_PROCEDURE.md
+└── ... (your existing project files)
+```
+
+### Step 2: Load the Procedure into AI
 
 **This is the most important step.** The `VIBECODE_PROCEDURE.md` file contains all the rules and workflows that the AI must follow.
 
-**Option A: Paste into AI context**
-Copy the entire contents of `VIBECODE_PROCEDURE.md` and paste it at the start of your AI conversation.
-
-**Option B: Add to project rules (recommended)**
+**Option A: Add to project rules (recommended)**
 If your AI tool supports project-level instructions (e.g., Claude Projects, Cursor rules, Windsurf rules), add the procedure there so it persists across sessions.
+
+**Option B: Paste into AI context**
+Copy the entire contents of `VIBECODE_PROCEDURE.md` and paste it at the start of your AI conversation.
 
 **Option C: Include in system prompt**
 For API integrations, include the procedure in your system prompt.
 
 > **Why is this required?** Without the procedure, the AI doesn't know the Vibecoding methodology—the core rules, stage-based workflow, what it must ask permission for, and how to handle git handoffs.
 
-### Step 2: Set Up Project Templates
-
-Copy the templates to your project root:
-
-```bash
-cp vibecode/PROJECT_CONTEXT.md PROJECT_CONTEXT.md
-cp vibecode/PROGRESS_LOG.md PROGRESS_LOG.md
-cp vibecode/DECISIONS.md DECISIONS.md
-```
-
 ### Step 3: Configure Your Project
 
-1. **Fill out PROJECT_CONTEXT.md** with your tech stack, architecture, and coding conventions
+1. **Fill out `vibecode/PROJECT_CONTEXT.md`** — choose one of the following approaches:
 
-2. **Choose your mode** in PROGRESS_LOG.md:
+   **Option A: AI auto-fill (recommended)**
+   Ask your AI to scan the project and populate the file for you. Example prompt:
+   > "Read the project codebase and auto-fill `vibecode/PROJECT_CONTEXT.md` with the relevant project information."
+
+   The AI will analyze your project structure, tech stack, patterns, and conventions, then fill in the template. Review the result and make any corrections.
+
+   **Option B: Manual edit**
+   Open `vibecode/PROJECT_CONTEXT.md` and fill in the placeholders yourself.
+
+2. **Choose your mode** in `vibecode/PROGRESS_LOG.md`:
    - **Solo Mode**: One human + AI
    - **Team Mode**: Multiple team members + AI
 
@@ -156,16 +189,16 @@ Tester → executes test procedures
 ### Starting a New AI Session
 
 1. **Load `VIBECODE_PROCEDURE.md`** into the AI (paste or include in rules)
-2. AI reads `PROJECT_CONTEXT.md` for project understanding
-3. AI reads `PROGRESS_LOG.md` for current state
-4. AI reads `DECISIONS.md` for architectural context
+2. AI reads `vibecode/PROJECT_CONTEXT.md` for project understanding
+3. AI reads `vibecode/PROGRESS_LOG.md` for current state
+4. AI reads `vibecode/DECISIONS.md` for architectural context
 5. AI summarizes understanding, human confirms
 6. Continue from documented state
 
 ### Ending a Session
 
-1. Update Progress Log with completed work
-2. Document any new decisions in DECISIONS.md
+1. Update `vibecode/PROGRESS_LOG.md` with completed work
+2. Document any new decisions in `vibecode/DECISIONS.md`
 3. Note handoff items for the next session
 
 ### File Purposes
@@ -173,9 +206,9 @@ Tester → executes test procedures
 | File | Purpose | When to Use |
 |------|---------|-------------|
 | `VIBECODE_PROCEDURE.md` | Teaches AI the methodology | Load at start of every AI session |
-| `PROJECT_CONTEXT.md` | Project-specific info | AI reads to understand your project |
-| `PROGRESS_LOG.md` | Current state & history | AI reads/updates during development |
-| `DECISIONS.md` | Architecture decisions | AI reads for context, updates when decisions made |
+| `vibecode/PROJECT_CONTEXT.md` | Project-specific info | AI reads to understand your project |
+| `vibecode/PROGRESS_LOG.md` | Current state & history | AI reads/updates during development |
+| `vibecode/DECISIONS.md` | Architecture decisions | AI reads for context, updates when decisions made |
 
 ## Contributing
 

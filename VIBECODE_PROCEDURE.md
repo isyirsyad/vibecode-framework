@@ -4,7 +4,7 @@
 
 | Field | Value |
 |-------|-------|
-| Version | 2.0 |
+| Version | 2.1 |
 | Created | 2026-02-04 |
 | Last Updated | 2026-02-04 |
 
@@ -36,9 +36,9 @@ Vibecoding is a collaborative approach where **humans and AI work together** on 
 
 For any new project:
 
-- [ ] Create `PROGRESS_LOG.md` in project root (copy from `vibecode/PROGRESS_LOG.md`)
-- [ ] Create `PROJECT_CONTEXT.md` for project documentation
-- [ ] Create `DECISIONS.md` for tracking architectural decisions
+- [ ] Verify `vibecode/PROGRESS_LOG.md` exists (human creates manually if missing)
+- [ ] Verify `vibecode/PROJECT_CONTEXT.md` exists (human creates manually if missing)
+- [ ] Verify `vibecode/DECISIONS.md` exists (human creates manually if missing)
 - [ ] Define if working in Solo or Team mode
 
 ### 1.4 Essential Templates
@@ -232,11 +232,12 @@ The Progress Log enables:
 
 When a new AI session starts:
 
-1. AI reads `PROGRESS_LOG.md`
-2. AI reads `PROJECT_CONTEXT.md`
-3. AI summarizes understanding to human
-4. Human confirms or corrects
-5. AI continues from documented state
+1. AI reads `vibecode/PROGRESS_LOG.md`
+2. AI reads `vibecode/PROJECT_CONTEXT.md`
+3. AI reads `vibecode/DECISIONS.md` (if exists)
+4. AI summarizes understanding to human
+5. Human confirms or corrects
+6. AI continues from documented state
 
 ---
 
@@ -366,8 +367,10 @@ For teams across time zones:
 
 ### 10.2 Template Usage
 
-1. Copy templates to your project root
-2. Fill in the placeholders
+1. Human manually creates the files in the `vibecode/` folder (AI verifies they exist)
+2. Fill in the templates using one of these approaches:
+   - **AI auto-fill:** Human asks AI to scan the project and auto-populate `vibecode/PROJECT_CONTEXT.md`. AI analyzes the codebase (structure, tech stack, patterns, conventions) and fills in the template. Human reviews and corrects.
+   - **Manual edit:** Human fills in the placeholders directly.
 3. Update regularly as the project evolves
 
 ---
@@ -378,3 +381,4 @@ For teams across time zones:
 |---------|------|---------|
 | 1.0 | 2026-02-04 | Initial document |
 | 2.0 | 2026-02-04 | Simplified structure, fixed numbering, consolidated content |
+| 2.1 | 2026-02-13 | Fixed: docs stay in `vibecode/` folder, AI verifies existence instead of copying |
