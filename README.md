@@ -9,7 +9,7 @@ Vibecoding is a development methodology that establishes clear boundaries and pr
 - **AI writes code**, humans push code
 - **AI prepares tests**, humans execute tests
 - **AI proposes**, humans decide
-- **AI suggests**, humans install dependencies
+- **AI provides install instructions**, humans run them
 
 This separation ensures human oversight while leveraging AI capabilities for implementation.
 
